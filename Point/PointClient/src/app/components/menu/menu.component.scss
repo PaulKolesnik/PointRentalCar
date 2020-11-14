@@ -1,0 +1,30 @@
+.container-fluid{
+  //padding: 0;
+  margin: 0;
+}
+.navbar{
+  background-color: #002147 !important;
+}
+.nav-col{
+  padding: 0;
+}
+img{
+  position: relative;
+  width:25px;
+  height: auto;
+}
+li{
+  a{
+    color:white !important;
+  }
+}
+li:hover{
+  background-color:gray;
+}
+.navbar-nav{
+  padding-inline-end: 20px;
+}
+.img{
+  margin-inline-end: 3px;
+  margin-block-start: 7px;
+}

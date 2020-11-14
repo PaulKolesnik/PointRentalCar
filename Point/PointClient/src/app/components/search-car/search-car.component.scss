@@ -1,0 +1,36 @@
+.container-fluid {
+  height: 70vh;
+}
+.cars{
+  max-width: 80vw;
+  margin-inline-start: 135px;
+  padding-block-start: 15px;
+}
+
+.row{
+  margin-block-start: 15px;
+  img{
+    width: 280px;
+    height: auto;
+  }
+}
+.modal-header,.modal-footer{
+  background-color:gainsboro;
+}
+.top{
+  padding-block-start: 20px;
+}
+.price{
+  color:red;
+}
+.prop{
+  color: Blue;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+input,select,textarea{
+  width:300px;
+  margin-inline-start: 15px;
+}

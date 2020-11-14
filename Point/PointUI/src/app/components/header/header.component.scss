@@ -1,0 +1,26 @@
+.container{
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 20vw 80vw;
+  background: #52616b;
+}
+
+.left-side{
+  grid-area: 1/1/2/2;
+
+}
+
+.right-side{
+  grid-area: 1/2/2/3;
+}
+
+.logo{
+  display: inline-block;
+  position: absolute;
+  margin-inline-start: 30px;
+  margin-block-start: -45px;
+}
+img{
+  width: 180px;
+  height: 180px;
+}

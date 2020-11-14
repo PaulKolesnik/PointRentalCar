@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="contact-button-body">
+    <div class="contact-button">
+      <p>
+        <a class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
+          aria-controls="multiCollapseExample1">Contact form</a>
+      </p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="card card-body">
+            Here in this form you can contact us!
+            We make every effort to respond as quickly as possible,<br>
+            in case of an urgent case you can contact us at: <u><b>08-8562626</b></u>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1"
+      placeholder="name@example.com" formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Subject</label>
+      <select class="" id="" formControlName="subject">
+        <option>Payment issues</option>
+        <option>Continue the rental period</option>
+        <option>Question of availability</option>
+        <option>Discount for purchasing groups</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+      formControlName="textarea">
+      </textarea>
+      <div class="form-row__description">
+        You have written {{ descriptionLength | async }}/255 characters (Max: 255)
+      </div>
+    </div>
+    <button class="btn" type="submit" [disabled]="!profileForm.valid">Send</button>
+  </form>
+</div>

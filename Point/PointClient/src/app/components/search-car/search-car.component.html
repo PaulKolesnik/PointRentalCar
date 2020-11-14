@@ -1,0 +1,146 @@
+<div class="container-fluid">
+  <br>
+  <br>
+
+  <h3>Filter By:</h3>
+  <form>
+    <span class="">
+      <label for="">Email address </label>
+      <input type="email" placeholder="name@example.com"
+        formControlName="email">
+    </span>
+
+    <span class="form-group">
+      <label for="exampleFormControlSelect1">Subject</label>
+      <input type="email" class="" id="exampleFormControlInput1" placeholder="name@example.com"
+        formControlName="email">
+    </span>
+
+    <span class="form-group">
+      <label for="exampleFormControlTextarea1"> Gearbox </label>
+      <select class="form-control" id="exampleFormControlSelect1" formControlName="subject">
+        <option>Payment issues</option>
+        <option>Continue the rental period</option>
+        <option>Question of availability</option>
+        <option>Discount for purchasing groups</option>
+        <option>Other</option>
+      </select>
+    </span>
+
+    <h3>Our Cars:</h3>
+  </form>
+  <table class="table table-hover cars">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Type</th>
+        <th scope="col">Gearbox</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Order</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr (click)="open(content)">
+        <th scope="row">1</th>
+        <td>Honda Jazz</td>
+        <td>Auto</td>
+        <td>Family</td>
+        <td>350₪</td>
+        <td><a>Order Now!</a></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>@fat</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry the Bird</td>
+        <td>Larry the Bird</td>
+        <td>@twitter</td>
+        <td>@twitter</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Car Full Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="row">
+        <div class="col-4">
+          <span class="prop">VIN:</span> 22-627-30
+        </div>
+        <div class="col-4">
+          <span class="prop">Category:</span> Mini
+        </div>
+        <div class="col-4">
+          <span class="prop">Type:</span> Opel Astra
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <span class="prop">Color:</span> Red
+        </div>
+        <div class="col-4">
+          <span class="prop">Purchase Date:</span> 2018
+        </div>
+        <div class="col-4">
+          <span class="prop">Year:</span> 2019
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <span class="prop">Mileage:</span> 14,000
+        </div>
+        <div class="col-4">
+          <span class="prop">Gearbox:</span> auto
+        </div>
+        <div class="col-4">
+          <span class="prop">Available at:</span> Ashdod
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Opel_Astra_1.4_EDIT_Edition_%28K%29_%E2%80%93_Frontansicht%2C_31._Juli_2016%2C_D%C3%BCsseldorf.jpg">
+        </div>
+        <div class="col-3 offset-1 top">
+          Vehicle available: YES
+          <br><br>
+
+        </div>
+        <div class="col-3 top">
+          Price: <span class="price">350₪</span>
+          <br>
+          Price of <u>Late Day</u>: <span class="price">400₪</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Order now</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Return</button>
+    </div>
+  </ng-template>
+
+
+</div>

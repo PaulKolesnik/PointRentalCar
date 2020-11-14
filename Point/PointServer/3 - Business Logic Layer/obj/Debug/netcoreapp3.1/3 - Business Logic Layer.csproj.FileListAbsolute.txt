@@ -1,0 +1,14 @@
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\bin\Debug\netcoreapp3.1\3 - Business Logic Layer.deps.json
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\bin\Debug\netcoreapp3.1\3 - Business Logic Layer.dll
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\bin\Debug\netcoreapp3.1\3 - Business Logic Layer.pdb
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.dll
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\bin\Debug\netcoreapp3.1\2 - Business Model.dll
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\bin\Debug\netcoreapp3.1\2 - Business Model.pdb
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.pdb
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\obj\Debug\netcoreapp3.1\3 - Business Logic Layer.csprojAssemblyReference.cache
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\obj\Debug\netcoreapp3.1\3 - Business Logic Layer.AssemblyInfoInputs.cache
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\obj\Debug\netcoreapp3.1\3 - Business Logic Layer.AssemblyInfo.cs
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\obj\Debug\netcoreapp3.1\3 - Business Logic Layer.csproj.CoreCompileInputs.cache
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\obj\Debug\netcoreapp3.1\3 - Business Logic Layer.csproj.CopyComplete
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\obj\Debug\netcoreapp3.1\3 - Business Logic Layer.dll
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\3 - Business Logic Layer\obj\Debug\netcoreapp3.1\3 - Business Logic Layer.pdb

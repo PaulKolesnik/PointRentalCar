@@ -1,0 +1,13 @@
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.deps.json
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.runtimeconfig.json
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.runtimeconfig.dev.json
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.dll
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\bin\Debug\netcoreapp3.1\1 - Data Access Layer.pdb
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.AssemblyInfoInputs.cache
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.AssemblyInfo.cs
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.csproj.CoreCompileInputs.cache
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\EFCorePluralizer.cs
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.dll
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.pdb
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.genruntimeconfig.cache
+C:\Users\pauls\OneDrive\Desktop\Point\PointServer\1 - Data Access Layer\obj\Debug\netcoreapp3.1\1 - Data Access Layer.csprojAssemblyReference.cache
