@@ -1,18 +1,28 @@
-.container-fluid{
-  background: #00ced1;
+.container-fluid {
+  background: #f6eec9;
   height: 20vh;
 }
 
-.logo{
+.logo {
   display: inline-block;
   position: absolute;
   margin-inline-start: 30px;
   padding-block-end: 50px;
 }
-img{
-  width: 180px;
-  height: 180px;
+
+img {
+  width: 230px;
+  height: 200px;
 }
-.more{
+
+.more {
   margin-block-start: 55px;
+}
+
+.rental-car {
+  margin-block-start: 25px;
+  h2 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #002147;
+  }
 }
