@@ -1,7 +1,7 @@
-export interface SystemSettings {
-
-}
 export interface API {
-  //home: string;
+  cars: string;
+}
 
+export interface SystemSettings {
+  baseDomain: string;
 }

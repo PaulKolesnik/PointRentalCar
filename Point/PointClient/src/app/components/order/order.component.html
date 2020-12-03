@@ -1,0 +1,29 @@
+<div class="container">
+  <div *ngIf="cars">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Image</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>Delete</th>
+        <th>Delete</th>
+        <th>Delete</th>
+        <th>Delete</th>
+      </tr>
+      <tr *ngFor="let c of cars">
+        <td>{{c.cModelID}}</td>
+        <td>{{c.cModelManufacturer}}</td>
+        <td>{{c.cModelName}}</td>
+        <td>{{c.cModelCatID}}</td>
+        <td>{{c.priceDay}}</td>
+        <td>{{c.priceLateDay}}</td>
+        <td>{{c.cModelCat}}</td>
+        <td>{{c.fleetVehicles}}</td>
+
+      </tr>
+    </table>
+  </div>
+</div>
