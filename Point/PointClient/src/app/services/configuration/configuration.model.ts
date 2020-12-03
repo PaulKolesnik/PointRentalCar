@@ -1,5 +1,5 @@
 export interface API {
-  cars: string;
+  fleetVehicles: string;
 }
 
 export interface SystemSettings {

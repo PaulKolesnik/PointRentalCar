@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CarsService } from './../../services/cars.service';
 import { CarsModel } from './../search-car/models/cars.model';
 
 @Component({
@@ -9,18 +8,15 @@ import { CarsModel } from './../search-car/models/cars.model';
 })
 export class OrderComponent implements OnInit {
   cars: CarsModel[];
-  constructor(private carsService: CarsService) { }
+  constructor() { }
 
-  async ngOnInit() {
-    await this.getCars();
-    console.log(this.cars);
+   ngOnInit() {
+
 
   }
 
-  async getCars() {
-    this.cars = await this.carsService.getAllCars();
-    console.log(this.cars);
-  }
+
+
 
 
 }
