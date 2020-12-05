@@ -12,6 +12,7 @@ import { Unsubscribe } from 'redux';
 })
 export class SearchCarComponent implements OnInit ,OnDestroy {
   public fleetVehicles: FleetVehiclesModel[];
+  public car: FleetVehiclesModel;
   private unsubscribe: Unsubscribe;
 
   constructor(
@@ -20,6 +21,7 @@ export class SearchCarComponent implements OnInit ,OnDestroy {
   ) { }
 
   async ngOnInit() {
+
     this.unsubscribe = store.subscribe(() => {
       this.fleetVehicles = store.getState().fleetVehicles;
     });

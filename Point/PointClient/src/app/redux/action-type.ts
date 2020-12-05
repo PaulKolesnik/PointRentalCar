@@ -4,4 +4,9 @@ export enum ActionType {
   AddCarToFleet,
   UpdateCarFromFleet,
   DeleteCarFromFleet,
+  GetAllCarsModels,
+  GetOneCarModel,
+  AddCarModel,
+  UpdateCarModel,
+  DeleteCarModel
 }
