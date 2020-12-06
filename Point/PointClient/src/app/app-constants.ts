@@ -6,7 +6,14 @@ export class AppConstants {
   }
 
   static readonly appRoutes = {
-    home: '/home',
+    home: 'home',
+    searchCar: 'search-car',
+    order: 'order',
+    contact: 'contact',
+    register: 'register',
+    login: 'login',
+    panel: 'panel',
+    portal: 'portal',
   };
 
   static readonly systemSettings = {

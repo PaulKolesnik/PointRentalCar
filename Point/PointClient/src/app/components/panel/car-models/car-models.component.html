@@ -1,43 +1,15 @@
-<app-header></app-header>
-<app-menu></app-menu>
 <div class="container-fluid">
-  <br>
-  <br>
+  <h1 class="mt-1">Car Models</h1>
 
-  <h3>Filter By:</h3>
-  <form>
-    <span class="">
-      <label for="">Email address </label>
-      <input type="email" placeholder="name@example.com" formControlName="email">
-    </span>
-
-    <span class="form-group">
-      <label for="exampleFormControlSelect1">Subject</label>
-      <input type="email" class="" id="exampleFormControlInput1" placeholder="name@example.com" formControlName="email">
-    </span>
-
-    <span class="form-group">
-      <label for="exampleFormControlTextarea1"> Gearbox </label>
-      <select class="form-control" id="exampleFormControlSelect1" formControlName="subject">
-        <option>Payment issues</option>
-        <option>Continue the rental period</option>
-        <option>Question of availability</option>
-        <option>Discount for purchasing groups</option>
-        <option>Other</option>
-      </select>
-    </span>
-
-    <h3>Our Cars:</h3>
-  </form>
-  <table class="table table-hover cars">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Type</th>
-        <th scope="col">Gearbox</th>
+        <th scope="col">Manufacturer</th>
+        <th scope="col">Model</th>
         <th scope="col">Category</th>
-        <th scope="col">Price</th>
-        <th scope="col">Order</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -68,7 +40,6 @@
       </tr>
     </tbody>
   </table>
-
 
 
   <ng-template #content let-modal>
@@ -119,8 +90,6 @@
 
       <div class="row">
         <div class="col-4">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Opel_Astra_1.4_EDIT_Edition_%28K%29_%E2%80%93_Frontansicht%2C_31._Juli_2016%2C_D%C3%BCsseldorf.jpg">
         </div>
         <div class="col-3 offset-1 top">
           Vehicle available: YES
@@ -137,11 +106,7 @@
 
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Order now</button>
       <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Return</button>
     </div>
   </ng-template>
-
-
 </div>
-<app-footer></app-footer>
