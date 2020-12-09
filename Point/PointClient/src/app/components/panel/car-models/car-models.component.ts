@@ -43,7 +43,7 @@ export class CarModelsComponent implements OnInit, OnDestroy {
       await this.carModelService.loadCarsModels();
     }
 
-    console.log('fleetVehicles', this.carsModels);
+    console.log('cars models->', this.carsModels);
   }
 
   public ngOnDestroy(): void {

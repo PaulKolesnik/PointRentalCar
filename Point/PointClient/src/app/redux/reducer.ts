@@ -18,12 +18,12 @@ export function reducer(currentState: AppState, action: Action): AppState {
       newState.fleetVehicles.push(action.payload);
       break;
     case ActionType.UpdateCarFromFleet: {
-      const index = newState.fleetVehicles.findIndex(f => f.iD === action.payload.id);
+      const index = newState.fleetVehicles.findIndex(f => f.id === action.payload.id);
       newState.fleetVehicles[index] = action.payload;
       break;
     }
     case ActionType.DeleteCarFromFleet: {
-      const index = newState.fleetVehicles.findIndex(f => f.iD === action.payload);
+      const index = newState.fleetVehicles.findIndex(f => f.id === action.payload);
       newState.fleetVehicles.splice(index, 1);
       break;
     }

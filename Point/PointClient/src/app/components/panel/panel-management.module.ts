@@ -15,6 +15,8 @@ import { PanelRoutingModule } from './panel-routing.module';
 import { PanelComponent } from './panel.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { UsersComponent } from './users/users.component';
+import { NewCarComponent } from './fleet-vehicle/new-car/new-car.component';
+import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.component';
 
 
 
@@ -27,6 +29,8 @@ import { UsersComponent } from './users/users.component';
     FleetVehicleComponent,
     NewCarModelComponent,
     UpdateCarModelComponent,
+    NewCarComponent,
+    UpdateCarComponent,
   ],
   imports: [
     CommonModule,

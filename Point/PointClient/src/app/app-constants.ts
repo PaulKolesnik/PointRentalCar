@@ -6,7 +6,8 @@ export class AppConstants {
     carsModels: 'api/car-models',
     reservation: 'api/reservations',
     users: 'api/users',
-    carCategory: 'api/car-category'
+    carCategory: 'api/car-category',
+    branches: 'api/rental-branch'
   }
 
   static readonly appRoutes = {

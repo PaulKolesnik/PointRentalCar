@@ -41,7 +41,7 @@
         <ng-select class="custom" [items]="categories" bindLabel="catName" bindValue="catID"
           placeholder="Select Category" formControlName="category" [(ngModel)]="selectedCategoryID">
         </ng-select>
-        <span class="error" *ngIf="form.get('priceLateDay').invalid && form.get('priceLateDay').touched">
+        <span class="error" *ngIf="form.get('category').invalid && form.get('category').touched">
           Required please select category
         </span>
       </label>

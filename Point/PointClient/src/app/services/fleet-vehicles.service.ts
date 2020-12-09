@@ -5,6 +5,7 @@ import { ActionType } from '../redux/action-type';
 import { Action } from '../redux/action';
 import { store } from '../redux/store';
 import { ConfigurationService } from './configuration/configuration.service';
+import { NumberFormatStyle } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
@@ -73,7 +74,7 @@ export class FleetVehiclesService {
       });
     }
 
-    public DeleteCarFromFleet(id: number, car: FleetVehiclesModel): Promise<boolean> {
+    public DeleteCarFromFleet(id: NumberFormatStyle): Promise<boolean> {
       return new Promise((resolve, reject) => {
         const apiAddress = this.configurationService.getApiEndPoint(this.configurationService.api.fleetVehicles);
 

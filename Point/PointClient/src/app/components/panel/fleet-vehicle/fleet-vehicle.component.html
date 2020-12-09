@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<div class="container-fluid">
+  <h1 class="mt-1 modal-title">Fleet Vehicles</h1>
+
+  <a routerLink="/panel/fleet-vehicle/new">
+    <h5>Add New Car To Fleet</h5>
+  </a>
+  <table class="table table-hover ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">VIN</th>
+        <th scope="col">Model</th>
+        <th scope="col">Color</th>
+        <th scope="col">Car Year</th>
+        <th scope="col">More Details</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let car of fleetVehicles">
+        <th scope="row">{{car.id}}</th>
+        <td>{{car.vin}}</td>
+        <td>{{car.carModel.cModelManufacturer}} {{car.carModel.cModelName}}</td>
+        <td>{{car.color}}</td>
+        <td>{{car.carYear}}</td>
+        <td (click)="open(content, car.id)">
+          <span class="material-icons">
+            trending_up
+          </span></td>
+        <td routerLink="/panel/fleet-vehicle/update/{{car.id}}">
+          <span class="material-icons">
+            upgrade
+          </span></td>
+        <td (click)="deleteCarFromFleet(car.modelID)">
+          <span class="material-icons">
+            delete_forever
+          </span>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- <div class="row">
+    <div class="col-3">
+      <ngb-pagination [collectionSize]="carsModels.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+        [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+    <div class="col-3">
+      <span>Select number items</span>
+    </div>
+    <div class="col-3">
+
+      <ng-select class="custom" [items]="pageSizes" bindLabel="number" bindValue="number" placeholder="Select page"
+        formControlName="category" [(ngModel)]="selectedPage">
+      </ng-select>
+    </div>
+  </div> -->
+
+
+
+
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Car Model Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="row">
+        <div class="col-4 ">
+          <span class="prop">ID:</span>{{carFromFleet.id}}
+        </div>
+        <div class="col-4 ">
+          <span class="prop">VIN:</span>{{carFromFleet.vin}}
+        </div>
+        <div class="col-4 ">
+          <span class="prop">Model:
+
+          </span>{{carFromFleet.carModel.cModelManufacturer}} {{carFromFleet.carModel.cModelName}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 top">
+          <span class="prop">Purchase Date:</span> {{carFromFleet.purchaseDate | date}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">Car Year:</span> {{carFromFleet.carYear}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">Mileage:</span> {{carFromFleet.mileage}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 top">
+          <span class="prop">Gear box:</span> {{carFromFleet.gearbox}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">To Used:</span> {{carFromFleet.toUsed}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">CarFixed:</span> {{carFromFleet.carFixed}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-5 top">
+          <span class="prop">Located Branch:</span> {{carFromFleet.branch.address}}
+        </div>
+        <div class=" col-6 top">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Opel_Astra_1.4_EDIT_Edition_%28K%29_%E2%80%93_Frontansicht%2C_31._Juli_2016%2C_D%C3%BCsseldorf.jpg">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Return</button>
+    </div>
+  </ng-template>
+</div>

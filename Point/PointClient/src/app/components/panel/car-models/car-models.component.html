@@ -2,7 +2,7 @@
 <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
 <div class="container-fluid">
-  <h1 class="mt-1">Car Models</h1>
+  <h1 class="mt-1 modal-title">Car Models</h1>
 
   <a routerLink="/panel/car-models/new">
     <h5>Add New Car Model</h5>
@@ -89,13 +89,13 @@
       </div>
 
       <div class="row">
-        <div class="col-4">
+        <div class="col-4 top">
           <span class="prop">Category:</span> {{carModel.cModelCat.catName}}
         </div>
-        <div class="col-4">
+        <div class="col-4 top">
           <span class="prop">Price for Day:</span> {{carModel.priceDay}}
         </div>
-        <div class="col-4">
+        <div class="col-4 top">
           <span class="prop">Price Late Day:</span> {{carModel.priceLateDay}}
         </div>
       </div>
