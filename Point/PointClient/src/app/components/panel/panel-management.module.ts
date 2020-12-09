@@ -1,19 +1,22 @@
-
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FooterModule } from '../footer/footer.module';
+import { HeaderModule } from '../header/header.module';
+import { MenuModule } from '../menu/menu.module';
 import { CarModelsComponent } from './car-models/car-models.component';
+import { NewCarModelComponent } from './car-models/new-car-model/new-car-model.component';
+import { UpdateCarModelComponent } from './car-models/update-car-model/update-car-model.component';
 import { FleetVehicleComponent } from './fleet-vehicle/fleet-vehicle.component';
 import { PanelRoutingModule } from './panel-routing.module';
 import { PanelComponent } from './panel.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { UsersComponent } from './users/users.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HeaderModule } from '../header/header.module';
-import { MenuModule } from '../menu/menu.module';
-import { FooterModule } from '../footer/footer.module';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { FooterModule } from '../footer/footer.module';
     CarModelsComponent,
     UsersComponent,
     ReservationsComponent,
-    FleetVehicleComponent
+    FleetVehicleComponent,
+    NewCarModelComponent,
+    UpdateCarModelComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +37,8 @@ import { FooterModule } from '../footer/footer.module';
     HttpClientModule,
     HeaderModule,
     FooterModule,
-    MenuModule
+    MenuModule,
+    NgSelectModule,
   ]
 })
 export class PanelManagementModule { }

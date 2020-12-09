@@ -1,50 +1,74 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
 <div class="container-fluid">
   <h1 class="mt-1">Car Models</h1>
 
-  <table class="table table-hover">
+  <a routerLink="/panel/car-models/new">
+    <h5>Add New Car Model</h5>
+  </a>
+  <table class="table table-hover ">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">ID</th>
         <th scope="col">Manufacturer</th>
         <th scope="col">Model</th>
         <th scope="col">Category</th>
+        <th scope="col">More Details</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
 
-      <tr (click)="open(content)">
-        <th scope="row">1</th>
-        <td>Honda Jazz</td>
-        <td>Auto</td>
-        <td>Family</td>
-        <td>350₪</td>
-        <td><a>Order Now!</a></td>
+      <tr *ngFor="let cm of carsModels">
+        <th scope="row">{{cm.cModelID}}</th>
+        <td>{{cm.cModelManufacturer}}</td>
+        <td>{{cm.cModelName}}</td>
+        <td>{{cm.cModelCat.catName}}</td>
+        <td (click)="open(content, cm.cModelID)">
+          <span class="material-icons">
+            trending_up
+          </span></td>
+        <td routerLink="/panel/car-models/update/{{cm.cModelID}}">
+          <span class="material-icons">
+            upgrade
+          </span></td>
+        <td (click)="deleteCarModel(cm.cModelID)">
+          <span class="material-icons">
+            delete_forever
+          </span>
+        </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry the Bird</td>
-        <td>Larry the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-      </tr>
+
     </tbody>
+
   </table>
+
+  <!-- <div class="row">
+    <div class="col-3">
+      <ngb-pagination [collectionSize]="carsModels.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+        [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+    <div class="col-3">
+      <span>Select number items</span>
+    </div>
+    <div class="col-3">
+
+      <ng-select class="custom" [items]="pageSizes" bindLabel="number" bindValue="number" placeholder="Select page"
+        formControlName="category" [(ngModel)]="selectedPage">
+      </ng-select>
+    </div>
+  </div> -->
+
+
+
+
 
 
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Car Full Details</h4>
+      <h4 class="modal-title" id="modal-basic-title">Car Model Details</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -54,54 +78,28 @@
 
       <div class="row">
         <div class="col-4">
-          <span class="prop">VIN:</span> 22-627-30
+          <span class="prop">Model ID:</span>{{carModel.cModelID}}
         </div>
         <div class="col-4">
-          <span class="prop">Category:</span> Mini
+          <span class="prop">Manufacturer:</span>{{carModel.cModelManufacturer}}
         </div>
         <div class="col-4">
-          <span class="prop">Type:</span> Opel Astra
+          <span class="prop">Model:</span> {{carModel.cModelName}}
         </div>
       </div>
 
       <div class="row">
         <div class="col-4">
-          <span class="prop">Color:</span> Red
+          <span class="prop">Category:</span> {{carModel.cModelCat.catName}}
         </div>
         <div class="col-4">
-          <span class="prop">Purchase Date:</span> 2018
+          <span class="prop">Price for Day:</span> {{carModel.priceDay}}
         </div>
         <div class="col-4">
-          <span class="prop">Year:</span> 2019
+          <span class="prop">Price Late Day:</span> {{carModel.priceLateDay}}
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-4">
-          <span class="prop">Mileage:</span> 14,000
-        </div>
-        <div class="col-4">
-          <span class="prop">Gearbox:</span> auto
-        </div>
-        <div class="col-4">
-          <span class="prop">Available at:</span> Ashdod
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-4">
-        </div>
-        <div class="col-3 offset-1 top">
-          Vehicle available: YES
-          <br><br>
-
-        </div>
-        <div class="col-3 top">
-          Price: <span class="price">350₪</span>
-          <br>
-          Price of <u>Late Day</u>: <span class="price">400₪</span>
-        </div>
-      </div>
     </div>
 
 

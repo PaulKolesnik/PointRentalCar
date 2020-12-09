@@ -32,7 +32,7 @@ export function reducer(currentState: AppState, action: Action): AppState {
       newState.carsModels = action.payload;
       break;
     case ActionType.GetOneCarModel:
-      newState.carsModels = action.payload
+      newState.carsModel = action.payload
       break;
     case ActionType.AddCarModel:
       newState.carsModels.push(action.payload);

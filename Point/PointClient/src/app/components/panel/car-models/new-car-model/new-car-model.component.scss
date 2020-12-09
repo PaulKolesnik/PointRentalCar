@@ -1,0 +1,36 @@
+
+form>label {
+  display: block;
+}
+
+form>label>span {
+  display: block;
+  font-size: 11px;
+}
+
+.ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+  width: 200px;
+}
+
+.ng-select.custom .ng-select-container {
+  min-height: 0px;
+  border-radius: 0;
+}
+
+.title {
+  padding-block-start: 15px;
+}
+
+.box {
+  margin-inline-start: 5px;
+  width: 40%;
+  //border: 3px solid #73AD21;
+  padding-block-start: 20px;
+}
+
+.error {
+  color: red;
+}

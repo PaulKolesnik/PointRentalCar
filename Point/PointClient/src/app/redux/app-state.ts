@@ -2,6 +2,7 @@ import { CarsModel, FleetVehiclesModel } from './../components/search-car/models
 export class AppState {
 
   public carsModels: CarsModel[];
+  public carsModel: CarsModel;
   public fleetVehicles: FleetVehiclesModel[];
   public oneCarFromFleet: FleetVehiclesModel;
   public users;

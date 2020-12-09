@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+
+<div class="container-fluid">
+  <div class="row title">
+    <h3>Add Car Model</h3>
+  </div>
+  <div class="box">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label><span>Manufacturer</span>
+        <input type="text" formControlName="manufacturer" [(ngModel)]="newCarModel.cModelManufacturer">
+        <span class="error" *ngIf="form.get('manufacturer').invalid && form.get('manufacturer').touched">
+          Required and Must Be between 2-10 letters
+        </span>
+
+      </label>
+
+      <label><span>Modal Name</span>
+        <input type="text" formControlName="modalName" [(ngModel)]="newCarModel.cModelName">
+        <span class="error" *ngIf="form.get('modalName').invalid && form.get('modalName').touched">
+          Required and Must Be between 1-10 letters
+        </span>
+      </label>
+
+      <label><span>Price For Day</span>
+        <input type="number" formControlName="priceDay" [(ngModel)]="newCarModel.priceDay">
+        <span class="error" *ngIf="form.get('priceDay').invalid && form.get('priceDay').touched">
+          Required and the price Must Be between 50-1000$
+        </span>
+      </label>
+
+      <label><span>Price Late Day</span>
+        <input type="number" formControlName="priceLateDay" [(ngModel)]="newCarModel.priceLateDay">
+        <span class="error" *ngIf="form.get('priceLateDay').invalid && form.get('priceLateDay').touched">
+          Required and the price Must Be between 50-1000$
+        </span>
+      </label>
+      <label>
+        <ng-select class="custom" [items]="categories" bindLabel="catName" bindValue="catID"
+          placeholder="Select Category" formControlName="category" [(ngModel)]="selectedCategoryID">
+        </ng-select>
+        <span class="error" *ngIf="form.get('priceLateDay').invalid && form.get('priceLateDay').touched">
+          Required please select category
+        </span>
+      </label>
+      <br>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Add Car Model</button>
+    </form>
+  </div>
+</div>

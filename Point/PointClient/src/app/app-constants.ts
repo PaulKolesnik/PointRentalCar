@@ -2,7 +2,11 @@ import { API } from './services/configuration/configuration.model';
 
 export class AppConstants {
   static readonly api: API = {
-    fleetVehicles: 'api/fleet-vehicles'
+    fleetVehicles: 'api/fleet-vehicles',
+    carsModels: 'api/car-models',
+    reservation: 'api/reservations',
+    users: 'api/users',
+    carCategory: 'api/car-category'
   }
 
   static readonly appRoutes = {
