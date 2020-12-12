@@ -1,5 +1,6 @@
+import { JwtInterceptorService } from './../../services/jwt-interceptor.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +18,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 import { UsersComponent } from './users/users.component';
 import { NewCarComponent } from './fleet-vehicle/new-car/new-car.component';
 import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.component';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -45,6 +46,13 @@ import {MatRadioModule} from '@angular/material/radio';
     MenuModule,
     NgSelectModule,
     MatRadioModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorService,
+      multi: true
+    }
   ]
 })
 export class PanelManagementModule { }

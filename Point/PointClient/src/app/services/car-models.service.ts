@@ -19,8 +19,7 @@ export class CarModelsService {
   public loadCarsModels(): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       const apiAddress = this.configurationService.getApiEndPoint(this.configurationService.api.carsModels);
-      const options = { headers: { Authorization: 'Bearer ' + store.getState().user?.jwtToken } }
-      this.http.get<CarsModel[]>(apiAddress, options)
+      this.http.get<CarsModel[]>(apiAddress)
         .subscribe(carsModels => {
           carsModels.forEach(carModel => {
             carModel.fullName = carModel.cModelManufacturer + ' ' + carModel.cModelName;
