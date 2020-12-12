@@ -1,1 +1,174 @@
-<p>update-car works!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+
+<div class="container">
+  <div class="text-center mt-5">
+    <h1>Update Car</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-7 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-dark ">
+        <div class="card-body bg-light">
+          <div class="container">
+            <form id="contact-form" role="form" [formGroup]="form" (ngSubmit)="updateCar()">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>
+                        <span>VIN</span><BR>
+                        <input type="text" formControlName="vin" [(ngModel)]="carFromFleet.vin">
+                        <span class="error" *ngIf="form.get('vin').invalid && form.get('vin').touched">
+                          Required and VIN Must be between 4-10 numbers
+                        </span>
+
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Color</span><BR>
+                        <input type="text" formControlName="color" [(ngModel)]="carFromFleet.color">
+                        <span class="error" *ngIf="form.get('color').invalid && form.get('color').touched">
+                          Required and Must be between 3-10 letters
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Purchase Date</span>
+                        <input type="date" formControlName="purchaseDate" [(ngModel)]="carFromFleet.purchaseDate">
+                        <span class="error"
+                          *ngIf="form.get('purchaseDate').invalid && form.get('purchaseDate').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Car Year </span>
+                        <input type="number" formControlName="carYear" [(ngModel)]="carFromFleet.carYear">
+                        <span class="error" *ngIf="form.get('carYear').invalid && form.get('carYear').touched">
+                          Required and the year should be between 10 years and the current year
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Mileage</span>
+                        <input type="number" formControlName="mileage" [(ngModel)]="carFromFleet.mileage">
+                        <span class="error" *ngIf="form.get('mileage').invalid && form.get('mileage').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Gearbox</span>
+                        <input type="text" formControlName="gearbox" [(ngModel)]="carFromFleet.gearbox">
+                        <span class="error" *ngIf="form.get('gearbox').invalid && form.get('gearbox').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>To Used</span><br>
+                        <!-- <input type="text" formControlName="toUsed" [(ngModel)]="carFromFleet.toUsed"> -->
+                        <mat-radio-group aria-label="Select an option" formControlName="toUsed"
+                          [(ngModel)]="carFromFleet.toUsed">
+                          <mat-radio-button value="yes">Yes</mat-radio-button>
+                          <mat-radio-button value="no">No</mat-radio-button>
+                        </mat-radio-group>
+
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+
+                      <label><span>Car Fixed</span><br>
+                        <!-- <input type="text" formControlName="carFixed" [(ngModel)]="carFromFleet.carFixed"> -->
+                        <mat-radio-group  formControlName="carFixed"
+                        [(ngModel)]="carFromFleet.carFixed">
+                        <mat-radio-button value="yes">Yes</mat-radio-button>
+                        <mat-radio-button value="no">No</mat-radio-button>
+                      </mat-radio-group>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>
+                        <ng-select class="custom" [items]="carsModels" bindLabel="fullName" bindValue="cModelID"
+                          placeholder="Select Category" formControlName="carModels" [(ngModel)]="selectedCarModelID">
+                        </ng-select>
+                        <span class="error" *ngIf="form.get('carModels').invalid && form.get('carModels').touched">
+                          Required please select Car Model
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>
+                        <ng-select class="custom" [items]="branches" bindLabel="name" bindValue="branchID"
+                          placeholder="Select Category" formControlName="branches" [(ngModel)]="selectedBranchID">
+                        </ng-select>
+                        <span class="error" *ngIf="form.get('branches').invalid && form.get('branches').touched">
+                          Required please select Branch
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="lab"><span>Upload Image</span>
+                        <input type="file" accept="image/*" (change)="displayPreview($event.target.files[0])"
+                          formControlName="carImg" [(ngModel)]="carFromFleet.carImgName">
+                        <span class="error" *ngIf="form.get('carImg').invalid && form.get('carImg').touched">
+                          Required ,Only image files
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <ng-container *ngIf="preview">
+                        <img src="{{preview}}">
+                      </ng-container>
+                      <ng-container *ngIf="!preview">
+                        <img [src]="carFromFleet.carImgName">
+                      </ng-container>
+                    </div>
+                  </div>
+                  <br>
+                  <button type="submit" class="col-md-12 btn btn-success btn-send pt-2 btn-block ">Update Car</button>
+                  <!-- [disabled]="!form.valid" -->
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,98 +2,171 @@
 <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
 
-<div class="container-fluid">
-  <div class="row title">
-    <h3>Add Car Model</h3>
+<div class="container">
+  <div class="text-center mt-5">
+    <h1>Add Car To Fleet</h1>
   </div>
-  <div class="box row">
+  <div class="row">
+    <div class="col-lg-7 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-dark ">
+        <div class="card-body bg-light">
+          <div class="container">
+            <form id="contact-form" role="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>
+                        <span>VIN</span><BR>
+                        <input type="text" formControlName="vin" [(ngModel)]="newCarToFleet.vin">
+                        <span class="error" *ngIf="form.get('vin').invalid && form.get('vin').touched">
+                          Required and VIN Must be between 4-10 numbers
+                        </span>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <label><span>VIN</span>
-        <input type="text" formControlName="vin" [(ngModel)]="newCarToFleet.vin">
-        <span class="error" *ngIf="form.get('vin').invalid && form.get('vin').touched">
-          Required and VIN Must be between 4-10 numbers
-        </span>
+                      </label>
+                    </div>
+                  </div>
 
-      </label>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Color</span><BR>
+                        <input type="text" formControlName="color" [(ngModel)]="newCarToFleet.color">
+                        <span class="error" *ngIf="form.get('color').invalid && form.get('color').touched">
+                          Required and Must be between 3-10 letters
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Purchase Date</span>
+                        <input type="date" formControlName="purchaseDate" [(ngModel)]="newCarToFleet.purchaseDate">
+                        <span class="error"
+                          *ngIf="form.get('purchaseDate').invalid && form.get('purchaseDate').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Car Year </span>
+                        <input type="number" formControlName="carYear" [(ngModel)]="newCarToFleet.carYear">
+                        <span class="error" *ngIf="form.get('carYear').invalid && form.get('carYear').touched">
+                          Required and the year should be between 10 years and the current year
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Mileage</span>
+                        <input type="number" formControlName="mileage" [(ngModel)]="newCarToFleet.mileage">
+                        <span class="error" *ngIf="form.get('mileage').invalid && form.get('mileage').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Gearbox</span>
+                        <input type="text" formControlName="gearbox" [(ngModel)]="newCarToFleet.gearbox">
+                        <span class="error" *ngIf="form.get('gearbox').invalid && form.get('gearbox').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>To Used</span><br>
+                        <!-- <input type="text" formControlName="toUsed" [(ngModel)]="newCarToFleet.toUsed"> -->
+                        <mat-radio-group aria-label="Select an option" formControlName="toUsed"
+                          [(ngModel)]="newCarToFleet.toUsed">
+                          <mat-radio-button value="yes">Yes</mat-radio-button>
+                          <mat-radio-button value="no">No</mat-radio-button>
+                        </mat-radio-group>
 
-      <label><span>Color</span>
-        <input type="text" formControlName="color" [(ngModel)]="newCarToFleet.color">
-        <span class="error" *ngIf="form.get('color').invalid && form.get('color').touched">
-          Required and Must be between 3-10 letters
-        </span>
-      </label>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
 
-      <label><span>Purchase Date</span>
-        <input type="date" formControlName="purchaseDate" [(ngModel)]="newCarToFleet.purchaseDate">
-        <span class="error" *ngIf="form.get('purchaseDate').invalid && form.get('purchaseDate').touched">
-          Required
-        </span>
-      </label>
+                      <label><span>Car Fixed</span><br>
+                        <!-- <input type="text" formControlName="carFixed" [(ngModel)]="newCarToFleet.carFixed"> -->
+                        <mat-radio-group  formControlName="carFixed"
+                        [(ngModel)]="newCarToFleet.carFixed">
+                        <mat-radio-button value="yes">Yes</mat-radio-button>
+                        <mat-radio-button value="no">No</mat-radio-button>
+                      </mat-radio-group>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>
+                        <ng-select class="custom" [items]="carModels" bindLabel="fullName" bindValue="cModelID"
+                          placeholder="Select Category" formControlName="carModels" [(ngModel)]="selectedCarModelID">
+                        </ng-select>
+                        <span class="error" *ngIf="form.get('carModels').invalid && form.get('carModels').touched">
+                          Required please select Car Model
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>
+                        <ng-select class="custom" [items]="branches" bindLabel="name" bindValue="branchID"
+                          placeholder="Select Category" formControlName="branches" [(ngModel)]="selectedBranchID">
+                        </ng-select>
+                        <span class="error" *ngIf="form.get('branches').invalid && form.get('branches').touched">
+                          Required please select Branch
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="lab"><span>Upload Image</span>
+                        <input type="file" accept="image/*" (change)="displayPreview($event.target.files[0])"
+                          formControlName="carImg" [(ngModel)]="newCarToFleet.carImgName">
+                        <span class="error" *ngIf="form.get('carImg').invalid && form.get('carImg').touched">
+                          Required ,Only image files
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <ng-container *ngIf="preview">
+                        <img src="{{preview}}">
+                      </ng-container>
+                    </div>
+                  </div>
+                  <br>
+                  <button type="submit" class="col-md-12 btn btn-success btn-send pt-2 btn-block ">Add Car To
+                    Fleet</button>
+                  <!-- [disabled]="!form.valid" -->
+                </div>
+              </div>
 
-      <label><span>Car Year</span>
-        <input type="number" formControlName="carYear" [(ngModel)]="newCarToFleet.carYear">
-        <span class="error" *ngIf="form.get('carYear').invalid && form.get('carYear').touched">
-          Required and the year should be between 10 years and the current year
-        </span>
-      </label>
-
-      <label><span>Mileage</span>
-        <input type="number" formControlName="mileage" [(ngModel)]="newCarToFleet.mileage">
-        <span class="error" *ngIf="form.get('mileage').invalid && form.get('mileage').touched">
-          Required
-        </span>
-      </label>
-
-      <label><span>Gearbox</span>
-        <input type="text" formControlName="gearbox" [(ngModel)]="newCarToFleet.gearbox">
-        <span class="error" *ngIf="form.get('gearbox').invalid && form.get('gearbox').touched">
-          Required
-        </span>
-      </label>
-
-      <label><span>To Used</span>
-        <input type="text" formControlName="toUsed" [(ngModel)]="newCarToFleet.toUsed">
-        <span class="error" *ngIf="form.get('toUsed').invalid && form.get('toUsed').touched">
-          Required and the answer must be 'yes' or 'no'
-        </span>
-      </label>
-
-      <label><span>Car Fixed</span>
-        <input type="text" formControlName="carFixed" [(ngModel)]="newCarToFleet.carFixed">
-        <span class="error" *ngIf="form.get('carFixed').invalid && form.get('carFixed').touched">
-          Required and the answer must be 'yes' or 'no'
-        </span>
-      </label>
-
-      <label>
-        <ng-select class="custom" [items]="carModels" bindLabel="fullName" bindValue="cModelID"
-          placeholder="Select Category" formControlName="carModels" [(ngModel)]="selectedCarModelID">
-        </ng-select>
-        <span class="error" *ngIf="form.get('carModels').invalid && form.get('carModels').touched">
-          Required please select Car Model
-        </span>
-      </label>
-
-      <label>
-        <ng-select class="custom" [items]="branches" bindLabel="name" bindValue="branchID"
-          placeholder="Select Category" formControlName="branches" [(ngModel)]="selectedBranchID">
-        </ng-select>
-        <span class="error" *ngIf="form.get('branches').invalid && form.get('branches').touched">
-          Required please select Branch
-        </span>
-      </label>
-
-      <label class="lab"><span >Upload Image</span>
-        <input type="file" formControlName="carFixed" [(ngModel)]="newCarToFleet.carFixed">
-        <span class="error" *ngIf="form.get('carFixed').invalid && form.get('carFixed').touched">
-          Required Image with end: ''
-        </span>
-      </label>
-
-      <br>
-      <button type="submit" class="btn btn-primary" >Add Car To Fleet</button>
-      <!-- [disabled]="!form.valid" -->
-    </form>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

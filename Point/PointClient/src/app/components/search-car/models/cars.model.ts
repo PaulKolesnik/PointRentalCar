@@ -6,7 +6,8 @@ export class FleetVehiclesModel {
   purchaseDate: Date;
   carYear: string;
   mileage: string;
-  carImg: string;
+  carImg: File;
+  carImgName: string;
   gearbox: string;
   toUsed: string;
   carFixed: string;

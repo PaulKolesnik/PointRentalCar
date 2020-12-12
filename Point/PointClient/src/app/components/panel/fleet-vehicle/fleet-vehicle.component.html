@@ -36,7 +36,7 @@
           <span class="material-icons">
             upgrade
           </span></td>
-        <td (click)="deleteCarFromFleet(car.modelID)">
+        <td (click)="deleteCarFromFleet(car.id)">
           <span class="material-icons">
             delete_forever
           </span>
@@ -121,8 +121,7 @@
           <span class="prop">Located Branch:</span> {{carFromFleet.branch.address}}
         </div>
         <div class=" col-6 top">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Opel_Astra_1.4_EDIT_Edition_%28K%29_%E2%80%93_Frontansicht%2C_31._Juli_2016%2C_D%C3%BCsseldorf.jpg">
+          <img [src]="carFromFleet.carImgName">
         </div>
       </div>
     </div>

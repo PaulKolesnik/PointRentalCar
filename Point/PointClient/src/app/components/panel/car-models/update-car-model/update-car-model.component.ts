@@ -46,11 +46,7 @@ export class UpdateCarModelComponent implements OnInit {
 
   public async updateCarModel(){
     this.carModel.cModelCatID = this.selectedCategoryID;
-    // this.carModel.cModelCat = {
-    //   catID: 0,
-    //   catName: null,
-    //   carDesc: null,
-    // };
+
     console.log(this.carModel);
     this.carModel.cModelCat = this.categories.find(c => c.catID === this.selectedCategoryID);
 

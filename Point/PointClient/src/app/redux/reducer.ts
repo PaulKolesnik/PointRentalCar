@@ -5,14 +5,29 @@ import { AppState } from './app-state';
 export function reducer(currentState: AppState, action: Action): AppState {
 
   const newState: AppState = { ...currentState };
+  const EXPIRE_TIME = 1000 * 60 * 60;
 
   switch (action.type) {
+    // Register - Login
+    case ActionType.Register:
+    case ActionType.Login:
+      newState.user = action.payload;
+      sessionStorage.setItem("user", JSON.stringify(newState.user));
+      localStorage.setItem("user", JSON.stringify(newState.user));
+      setTimeout(() => {
+        localStorage.removeItem('storedData');
+      }, EXPIRE_TIME); // after an hour it will delete the data from localStorage
+      break;
+    case ActionType.Logout:
+      newState.user = null;
+      sessionStorage.removeItem("user");
+      break;
     // Cases from Fleet
     case ActionType.GetAllFleetVehicles:
       newState.fleetVehicles = action.payload;
       break;
     case ActionType.GetOneCarFromFleet:
-      newState.oneCarFromFleet= action.payload
+      newState.oneCarFromFleet = action.payload
       break;
     case ActionType.AddCarToFleet:
       newState.fleetVehicles.push(action.payload);

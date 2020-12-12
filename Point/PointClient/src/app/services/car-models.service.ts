@@ -19,9 +19,12 @@ export class CarModelsService {
   public loadCarsModels(): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       const apiAddress = this.configurationService.getApiEndPoint(this.configurationService.api.carsModels);
-
-      this.http.get<CarsModel[]>(apiAddress)
+      const options = { headers: { Authorization: 'Bearer ' + store.getState().user?.jwtToken } }
+      this.http.get<CarsModel[]>(apiAddress, options)
         .subscribe(carsModels => {
+          carsModels.forEach(carModel => {
+            carModel.fullName = carModel.cModelManufacturer + ' ' + carModel.cModelName;
+          });
           const action: Action = { type: ActionType.GetAllCarsModels, payload: carsModels };
           store.dispatch(action);
           resolve(true);
@@ -36,7 +39,7 @@ export class CarModelsService {
     return new Promise<boolean>((resolve, reject) => {
       const apiAddress = this.configurationService.getApiEndPoint(this.configurationService.api.carsModels);
 
-      this.http.get<CarsModel>(apiAddress + '/' + id )
+      this.http.get<CarsModel>(apiAddress + '/' + id)
         .subscribe(carFromFleet => {
           const action: Action = { type: ActionType.GetOneCarModel, payload: carFromFleet };
           store.dispatch(action);
@@ -62,10 +65,6 @@ export class CarModelsService {
   public UpdateCarModel(id: number, carModel: CarsModel): Promise<boolean> {
     return new Promise((resolve, reject) => {
       const apiAddress = this.configurationService.getApiEndPoint(this.configurationService.api.carsModels);
-
-      const params = new HttpParams()
-        .set('id', id.toString())
-        .set('carModel', JSON.stringify(carModel))
 
       this.http.put<CarsModel>(apiAddress + '/' + id, carModel)
         .subscribe(carModel => {

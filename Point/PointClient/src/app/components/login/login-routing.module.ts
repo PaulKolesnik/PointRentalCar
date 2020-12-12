@@ -1,13 +1,12 @@
-import { LoginGuard } from './../../services/login.guard';
+import { LoginComponent } from './login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchCarComponent } from './search-car.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: SearchCarComponent
+    component: LoginComponent,
   }
 ];
 
@@ -16,4 +15,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class SearchCarRoutingModule { }
+export class LoginRoutingModule { }

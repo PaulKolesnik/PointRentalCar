@@ -1,4 +1,7 @@
 export enum ActionType {
+  Register,
+  Login,
+  Logout,
   GetAllFleetVehicles,
   GetOneCarFromFleet,
   AddCarToFleet,

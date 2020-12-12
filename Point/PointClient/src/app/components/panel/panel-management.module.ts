@@ -17,6 +17,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 import { UsersComponent } from './users/users.component';
 import { NewCarComponent } from './fleet-vehicle/new-car/new-car.component';
 import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -43,6 +44,7 @@ import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.compon
     FooterModule,
     MenuModule,
     NgSelectModule,
+    MatRadioModule
   ]
 })
 export class PanelManagementModule { }

@@ -17,6 +17,7 @@ export class AppConstants {
     contact: 'contact',
     register: 'register',
     login: 'login',
+    logout: 'logout',
     panel: 'panel',
     portal: 'portal',
   };

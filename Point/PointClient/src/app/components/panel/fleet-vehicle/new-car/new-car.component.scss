@@ -1,11 +1,35 @@
-
-form>label {
-  display: block;
+body {
+  font-family: 'Lato', sans-serif
 }
 
-form>label>span {
-  display: block;
-  font-size: 11px;
+h1 {
+  margin-bottom: 30px
+}
+
+label {
+  color: #333
+}
+img{
+  width: 250px;
+  height: auto;
+}
+.btn-send {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  width: 80%;
+  margin-left: 3px
+}
+
+.help-block.with-errors {
+  color: #ff5050;
+  margin-top: 5px
+}
+
+.card {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-block-end: 15px;
 }
 
 .ng-select.custom {
@@ -20,17 +44,13 @@ form>label>span {
   border-radius: 0;
 }
 
-.title {
-  padding-block-start: 15px;
-}
-
-.box {
-  margin-inline-start: 5px;
-  width: 40%;
-  border: 3px solid #73AD21;
-  padding-block-start: 20px;
-}
 
 .error {
+  position: absolute;
+  padding-inline-start: 5px;
   color: red;
+  font-size: xx-small;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 10px;
 }

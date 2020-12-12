@@ -22,6 +22,8 @@ export class NewCarComponent implements OnInit {
   public year = new Date().getFullYear();
   public newCarToFleet: FleetVehiclesModel = new FleetVehiclesModel();
 
+  public preview: string;
+
   form: FormGroup = new FormGroup({
     vin: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])),
     color: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(10)])),
@@ -47,9 +49,9 @@ export class NewCarComponent implements OnInit {
     // get all cars models
     await this.carModelService.loadCarsModels();
     this.carModels = store.getState().carsModels;
-    this.carModels.forEach( carModel => {
-      carModel.fullName = carModel.cModelManufacturer + ' ' + carModel.cModelName;
-    });
+    // this.carModels.forEach( carModel => {
+    //   carModel.fullName = carModel.cModelManufacturer + ' ' + carModel.cModelName;
+    // });
     this.selectedCarModelID = this.carModels[0].cModelID;
     // get all branches
     this.branches = await this.branchesService.getAllBranches();
@@ -69,11 +71,17 @@ export class NewCarComponent implements OnInit {
     var notyf = new Notyf();
     notyf.success('Your have successfully added!');
 
-    // setTimeout(() => {
-    //   this.myRouter.navigateByUrl("/panel/fleet-vehicle");
+    setTimeout(() => {
+      this.myRouter.navigateByUrl("/panel/fleet-vehicle");
 
-    // }, 3000);
-
-
+    }, 2500);
   }
+
+  public displayPreview(image: File){
+    this.newCarToFleet.carImg = image;
+    const fileReader = new FileReader();
+    fileReader.onload = args => this.preview = args.target.result.toString();
+    fileReader.readAsDataURL(image);
+  }
+
 }
