@@ -1,10 +1,10 @@
-import { store } from '../redux/store';
-import { ActionType } from './../redux/action-type';
-import { CarsModel } from './../components/search-car/models/cars.model';
-import { ConfigurationService } from './configuration/configuration.service';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Action } from '../redux/action';
+import { store } from '../redux/store';
+import { CarsModel } from './../components/search-car/models/cars.model';
+import { ActionType } from './../redux/action-type';
+import { ConfigurationService } from './configuration/configuration.service';
 
 @Injectable({
   providedIn: 'root'

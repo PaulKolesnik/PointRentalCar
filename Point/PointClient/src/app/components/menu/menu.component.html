@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link "  routerLink="/home" routerLinkActive="active">Home<span
+              <a class="nav-link " routerLink="/home" routerLinkActive="active">Home<span
                   class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -22,21 +22,29 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/panel" routerLinkActive="active">Panel</a>
-            </li>
+
           </ul>
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <div class="img"><img src="assets/images/register-icon.png"></div>
-            <li  *ngIf="!user" class="nav-item">
-              <a class="nav-link"routerLink="/register" routerLinkActive="active">Register</a>
+            <img *ngIf="!user" src="assets/images/register.png">
+            <li *ngIf="!user" class="nav-item">
+              <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
             </li>
-            <div class="img"><img src="assets/images/login-icon.png"></div>
-            <li  *ngIf="!user"  class="nav-item ">
-              <a class="nav-link"routerLink="/login" routerLinkActive="active">Login</a>
+
+            <img *ngIf="!user" src="assets/images/login.png">
+            <li *ngIf="!user" class="nav-item ">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
             </li>
+
+            <ng-container *ngIf="user">
+              <span class="welcome">Hello <span class="name">{{user.fullName}}</span>, Welcome!</span>
+            </ng-container>
+            <!-- <img *ngIf="user" src="assets/images/logout.png"> -->
             <li *ngIf="user" class="nav-item ">
               <a class="nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
+            </li>
+
+            <li *ngIf="checkPanelPermissions()" class="nav-item">
+              <a class="nav-link" routerLink="/panel" routerLinkActive="active">Panel</a>
             </li>
           </ul>
 

@@ -24,5 +24,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.unsubscribe();
   }
 
-
+  checkPanelPermissions(): boolean {
+    return this.user.userRole == '1' || this.user.userRole == '2';
+  }
 }
