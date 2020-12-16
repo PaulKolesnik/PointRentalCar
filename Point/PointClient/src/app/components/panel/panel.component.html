@@ -5,10 +5,10 @@
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Management Panel </div>
     <div class="list-group list-group-flush">
-      <a routerLink="/panel/car-models" class="list-group-item list-group-item-action bg-light">Car Models</a>
-      <a routerLink="/panel/fleet-vehicle" class="list-group-item list-group-item-action bg-light">Fleet vehicles</a>
-      <a routerLink="/panel/reservation" class="list-group-item list-group-item-action bg-light">Reservations</a>
-      <a routerLink="/panel/users" class="list-group-item list-group-item-action bg-light">Users</a>
+      <a *ngIf="user.userRole == '1'" routerLink="/panel/car-models" class="list-group-item list-group-item-action bg-light">Car Models</a>
+      <a *ngIf="user.userRole == '1'" routerLink="/panel/fleet-vehicle" class="list-group-item list-group-item-action bg-light">Fleet vehicles</a>
+      <a *ngIf="user.userRole == '1'" routerLink="/panel/reservation" class="list-group-item list-group-item-action bg-light">Reservations</a>
+      <a *ngIf="user.userRole == '1'" routerLink="/panel/users" class="list-group-item list-group-item-action bg-light">Users</a>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
@@ -25,7 +25,7 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
+            <a class="nav-link" routerLink="/logout">Logout <span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>

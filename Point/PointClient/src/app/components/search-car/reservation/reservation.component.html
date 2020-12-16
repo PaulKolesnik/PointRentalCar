@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<app-header></app-header>
+<app-menu></app-menu>
+
+
+<div class="container">
+  <div class="text-center mt-5">
+    <h1>Complete Order</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-7 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-dark ">
+        <div class="card-body bg-light">
+          <div class="container">
+            <form id="contact-form" role="form" [formGroup]="form" (ngSubmit)="completeOrder()">
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>
+                        <span>VIN</span><BR>
+                        <input type="text" formControlName="vin" [(ngModel)]="carFromFleet.vin">
+                        <span class="error" *ngIf="form.get('vin').invalid && form.get('vin').touched">
+                          Required and VIN Must be between 4-10 numbers
+                        </span>
+
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Color</span><BR>
+                        <input type="text" formControlName="color" [(ngModel)]="carFromFleet.color">
+                        <span class="error" *ngIf="form.get('color').invalid && form.get('color').touched">
+                          Required and Must be between 3-10 letters
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Purchase Date</span>
+                        <input type="date" formControlName="purchaseDate" [(ngModel)]="carFromFleet.purchaseDate">
+                        <span class="error"
+                          *ngIf="form.get('purchaseDate').invalid && form.get('purchaseDate').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Car Year </span>
+                        <input type="number" formControlName="carYear" [(ngModel)]="carFromFleet.carYear">
+                        <span class="error" *ngIf="form.get('carYear').invalid && form.get('carYear').touched">
+                          Required and the year should be between 10 years and the current year
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Mileage</span>
+                        <input type="number" formControlName="mileage" [(ngModel)]="carFromFleet.mileage">
+                        <span class="error" *ngIf="form.get('mileage').invalid && form.get('mileage').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Gearbox</span>
+                        <input type="text" formControlName="gearbox" [(ngModel)]="carFromFleet.gearbox">
+                        <span class="error" *ngIf="form.get('gearbox').invalid && form.get('gearbox').touched">
+                          Required
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Date Taken</span><br>
+                        <input type="date" formControlName="dateTaken" [(ngModel)]="takenDate">
+
+
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+
+                      <label><span>Date Return</span><br>
+                        <input type="date" formControlName="dateReturn" [(ngModel)]="returnDate">
+
+                      </label> <a (click)="calcDaysForRent()">Calculate</a>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>Amount: <span *ngIf="diffDays">({{diffDays}} days)</span></span><br>
+                        <span *ngIf="amount">{{amount}}$ (Every day late:{{carFromFleet.carModel.priceLateDay}}$)</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label><span>PaidUp</span><br>
+                        <input type="number" formControlName="paidUP" [(ngModel)]="reservation.paidUP">
+                      </label>
+                    </div>
+                  </div>
+                  <button [disabled]="!form.valid && !amount" type="submit"
+                    class="col-md-12 btn btn-success btn-send pt-2 btn-block ">Order</button>
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<app-footer></app-footer>

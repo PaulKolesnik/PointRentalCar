@@ -1,1 +1,124 @@
-<p>users works!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<div class="container-fluid">
+  <h1 class="mt-1 modal-title">Users</h1>
+
+
+  <table class="table table-hover ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">UserName</th>
+        <th scope="col">BirthDate</th>
+        <th scope="col">Role</th>
+        <th scope="col">More Details</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.userID}}</th>
+        <td>{{user.fullName}}</td>
+        <td>{{user.userName}}</td>
+        <td>{{user.birthDate | date}}</td>
+        <td>{{user.userRole}}</td>
+        <td (click)="open(content, user.userID)">
+          <span class="material-icons">
+            trending_up
+          </span></td>
+        <td routerLink="/panel/users/update/{{user.userID}}">
+          <span class="material-icons">
+            upgrade
+          </span></td>
+        <td (click)="deleteUser(user.userID)">
+          <span class="material-icons">
+            delete_forever
+          </span>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- <div class="row">
+    <div class="col-3">
+      <ngb-pagination [collectionSize]="usersModels.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+        [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+    <div class="col-3">
+      <span>Select number items</span>
+    </div>
+    <div class="col-3">
+
+      <ng-select class="custom" [items]="pageSizes" bindLabel="number" bindValue="number" placeholder="Select page"
+        formControlName="category" [(ngModel)]="selectedPage">
+      </ng-select>
+    </div>
+  </div> -->
+
+
+
+
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">User Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="row">
+        <div class="col-4 ">
+          <span class="prop">ID:</span>{{user.userID}}
+        </div>
+        <div class="col-4 ">
+          <span class="prop">User Role:</span>{{user.userRole}}
+        </div>
+        <div class="col-4 ">
+          <span class="prop">Full Name:
+          </span>{{user.fullName}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 top">
+          <span class="prop">UserName :</span> {{user.userName}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">Birthday Date:</span> {{user.birthDate | date}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">Gender:</span> {{user.gender }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 top">
+          <span class="prop">Email:</span> {{user.email}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">Phone:</span> {{user.phone.PhoneNumber}}
+        </div>
+        <div class="col-4 top">
+          <img [src]="user.userPic">
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Return</button>
+    </div>
+  </ng-template>
+</div>

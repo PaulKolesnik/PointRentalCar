@@ -5,7 +5,7 @@ import { AppState } from './app-state';
 export function reducer(currentState: AppState, action: Action): AppState {
 
   const newState: AppState = { ...currentState };
-  const EXPIRE_TIME = 1000 * 60 * 60;
+  const EXPIRE_TIME = 5;
 
   switch (action.type) {
     // Register - Login
@@ -13,15 +13,23 @@ export function reducer(currentState: AppState, action: Action): AppState {
     case ActionType.Login:
       newState.user = action.payload;
       sessionStorage.setItem("user", JSON.stringify(newState.user));
-      localStorage.setItem("user", JSON.stringify(newState.user));
-      setTimeout(() => {
-        localStorage.removeItem('storedData');
-      }, EXPIRE_TIME); // after an hour it will delete the data from localStorage
+      // localStorage.setItem("user", JSON.stringify(newState.user));
+      // setTimeout(() => {
+      //   localStorage.removeItem('storedData');
+      // }, EXPIRE_TIME); // after an hour it will delete the data from localStorage
       break;
     case ActionType.Logout:
       newState.user = null;
       sessionStorage.removeItem("user");
       break;
+    case ActionType.GetAllUsers:
+      newState.users = action.payload;
+      break;
+    case ActionType.DeleteUser: {
+      const index = newState.users.findIndex(u => u.userID === action.payload);
+      newState.users.splice(index, 1);
+      break;
+    }
     // Cases from Fleet
     case ActionType.GetAllFleetVehicles:
       newState.fleetVehicles = action.payload;

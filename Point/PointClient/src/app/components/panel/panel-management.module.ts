@@ -19,6 +19,7 @@ import { UsersComponent } from './users/users.component';
 import { NewCarComponent } from './fleet-vehicle/new-car/new-car.component';
 import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { UpdateUserComponent } from './users/update-user/update-user.component';
 
 
 
@@ -33,6 +34,7 @@ import { MatRadioModule } from '@angular/material/radio';
     UpdateCarModelComponent,
     NewCarComponent,
     UpdateCarComponent,
+    UpdateUserComponent,
   ],
   imports: [
     CommonModule,

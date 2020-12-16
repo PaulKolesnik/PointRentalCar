@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AppConstants } from './app-constants';
-import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { OrderComponent } from './components/order/order.component';
-import { RegisterComponent } from './components/register/register.component';
-import { SearchCarComponent } from './components/search-car/search-car.component';
 
 const routes: Routes = [
   // { path: AppConstants.appRoutes.home, component: HomeComponent },
@@ -27,7 +23,6 @@ const routes: Routes = [
     path: AppConstants.appRoutes.searchCar,
     loadChildren: () => import('./components/search-car/search-car.module').then(m => m.SearchCarModule)
   },
-  { path: AppConstants.appRoutes.order, component: OrderComponent },
   {
     path: AppConstants.appRoutes.contact,
     loadChildren: () => import('./components/contact/contact.module').then(m => m.ContactModule)

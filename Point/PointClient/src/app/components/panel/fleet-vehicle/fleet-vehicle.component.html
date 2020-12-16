@@ -26,7 +26,7 @@
         <th scope="row">{{car.id}}</th>
         <td>{{car.vin}}</td>
         <td>{{car.carModel.cModelManufacturer}} {{car.carModel.cModelName}}</td>
-        <td>{{car.color}}</td>
+        <td>{{car.carModel.cModelCat.catName}}</td>
         <td>{{car.carYear}}</td>
         <td (click)="open(content, car.id)">
           <span class="material-icons">
@@ -70,7 +70,7 @@
 
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Car Model Details</h4>
+      <h4 class="modal-title" id="modal-basic-title">Car Details</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>

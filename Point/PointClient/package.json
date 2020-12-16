@@ -28,6 +28,7 @@
     "@types/jquery": "^3.5.4",
     "bootstrap": "^4.5.3",
     "jquery": "^3.4.1",
+    "ng2-search-filter": "^0.5.1",
     "notifyjs": "^3.0.0",
     "noty": "^3.2.0-beta",
     "notyf": "^3.9.0",

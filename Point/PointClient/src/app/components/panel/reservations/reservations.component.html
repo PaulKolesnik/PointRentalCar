@@ -1,1 +1,123 @@
-<p>reservations works!</p>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+<div class="container-fluid">
+  <h1 class="mt-1 modal-title">Reservations</h1>
+
+
+  <table class="table table-hover ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">VIN</th>
+        <th scope="col">Rent Date</th>
+        <th scope="col">Return Date</th>
+        <th scope="col">PaidUP</th>
+        <th scope="col">More Details</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let reservation of reservations">
+        <th scope="row">{{reservation.reservationID}}</th>
+        <td>{{reservation.car.vin}}</td>
+        <td>{{reservation.pDate| date}}</td>
+        <td>{{reservation.rDate | date}}</td>
+        <td>{{reservation.paidUP}}</td>
+        <td (click)="open(content, reservation.reservationID)">
+          <span class="material-icons">
+            trending_up
+          </span></td>
+        <td routerLink="/panel/reservation/update/{{reservation.reservationID}}">
+          <span class="material-icons">
+            upgrade
+          </span></td>
+        <td (click)="deleteRes(reservation.reservationID)">
+          <span class="material-icons">
+            delete_forever
+          </span>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+  <!-- <div class="row">
+    <div class="col-3">
+      <ngb-pagination [collectionSize]="usersModels.length" [(page)]="page" [maxSize]="5" [rotate]="true"
+        [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+    <div class="col-3">
+      <span>Select number items</span>
+    </div>
+    <div class="col-3">
+
+      <ng-select class="custom" [items]="pageSizes" bindLabel="number" bindValue="number" placeholder="Select page"
+        formControlName="category" [(ngModel)]="selectedPage">
+      </ng-select>
+    </div>
+  </div> -->
+
+
+
+
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">User Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- <div class="modal-body">
+
+      <div class="row">
+        <div class="col-4 ">
+          <span class="prop">ID:</span>{{user.userID}}
+        </div>
+        <div class="col-4 ">
+          <span class="prop">VIN:</span>{{user.userRole}}
+        </div>
+        <div class="col-4 ">
+          <span class="prop">Car Type:
+          </span>{{user.fullName}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 top">
+          <span class="prop">Rent Date :</span> {{user.userName}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">Return Date:</span> {{user.birthDate | date}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">Gender:</span> {{user.gender }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 top">
+          <span class="prop">Amount:</span> {{user.email}}
+        </div>
+        <div class="col-4 top">
+          <span class="prop">PaidUP:</span> {{user.phone.PhoneNumber}}
+        </div>
+        <div class="col-4 top">
+        </div>
+      </div>
+
+
+    </div> -->
+
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Return</button>
+    </div>
+  </ng-template>
+</div>

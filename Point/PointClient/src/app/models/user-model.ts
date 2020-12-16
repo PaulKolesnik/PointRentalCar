@@ -11,6 +11,7 @@ export class UserModel {
     public email?: string,
     public phoneID?: number,
     public userPic?: string,
+    public image?: File,
     public jwtToken?: string,
     public phone?: PhoneModel
     ) {}

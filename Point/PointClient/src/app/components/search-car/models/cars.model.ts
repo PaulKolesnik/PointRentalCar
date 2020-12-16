@@ -50,8 +50,9 @@ export interface BranchModel {
   locID: number,
   location: LocationModel
 }
-export interface LocationModel {
-  locID: number,
-  latitude: number,
-  longitude: number
+export class LocationModel {
+  constructor(public locID?: number, public latitude?: number, public longitude?: number) {
+    latitude=0;
+    longitude=0;
+  }
 }

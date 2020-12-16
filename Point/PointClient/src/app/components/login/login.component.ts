@@ -32,13 +32,17 @@ export class LoginComponent implements OnInit {
 
   public async login(){
     const success = await this.authService.login(this.credentials);
+    var notyf = new Notyf({ duration: 4000, ripple: false });
 
     if(success){
-      var notyf = new Notyf();
       notyf.success('Your have successfully login!');
       setTimeout(() => {
         this.router.navigateByUrl('/home');
       },1500)
+    }
+    else{
+      notyf.error('Wrong details, try again!');
+
     }
   }
 

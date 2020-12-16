@@ -1,40 +1,115 @@
 .container-fluid {
-  height: 70vh;
+  height: 120vh;
 }
-.cars{
+
+.filter-box {
+  border: 1px solid black;
+  display: inline-block;
+  //position: relative;
+  margin-inline-start: 145px;
+  max-width: 90%;
+  width: 85%;
+
+  input {
+    max-width: 150px;
+  }
+
+  .search-hero {
+    max-width: 250px !important;
+    padding-bottom: 50px;
+    margin: auto;
+  }
+}
+
+.cars {
   max-width: 80vw;
   margin-inline-start: 135px;
   padding-block-start: 15px;
+
 }
 
-.row{
+.ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+  width: 160px !important;
+  padding-block-end: 25px;
+}
+
+.row {
   margin-block-start: 15px;
-  img{
+
+  img {
     width: 280px;
     height: auto;
   }
 }
-.modal-header,.modal-footer{
-  background-color:gainsboro;
+
+.modal-header,
+.modal-footer {
+  background-color: gainsboro;
 }
-.top{
+
+.top {
   padding-block-start: 20px;
 }
-.price{
-  color:red;
+
+.price {
+  color: red;
 }
-.prop{
+
+.prop {
   color: Blue;
   font-weight: bold;
   font-family: monospace;
   font-size: 15px;
 }
 
-input,select,textarea{
-  width:300px;
+input,
+select,
+textarea {
+  width: 300px;
   margin-inline-start: 15px;
 }
-.modal-title{
-  color:skyblue;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.1);
+
+.modal-title {
+  color: skyblue;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.top {
+  padding-block-start: 20px;
+}
+
+.ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+  width: 70px;
+}
+
+.material-icons {
+  padding-inline-start: 15px;
+}
+
+img {
+  width: 280px;
+  height: auto;
+}
+
+.prop {
+  color: Blue;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+.modal-title {
+  color: skyblue;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+.down {
+  padding-inline-start: 10px;
 }

@@ -1,3 +1,6 @@
+import { UpdateUserComponent } from './users/update-user/update-user.component';
+import { AdminGuard } from './../../services/admin.guard';
+import { EmployeeGuard } from './../../services/employee.guard';
 import { UpdateCarModelComponent } from './car-models/update-car-model/update-car-model.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { NgModule } from '@angular/core';
@@ -11,14 +14,19 @@ import { NewCarComponent } from './fleet-vehicle/new-car/new-car.component';
 import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.component';
 
 export const portalChildrenRouts: Route[] = [
-  { path: 'car-models', component: CarModelsComponent},
-  { path: 'car-models/new', component: NewCarModelComponent},
-  { path: 'car-models/update/:id', component: UpdateCarModelComponent},
-  { path: 'fleet-vehicle', component: FleetVehicleComponent},
-  { path: 'fleet-vehicle/new', component: NewCarComponent},
-  { path: 'fleet-vehicle/update/:carID', component: UpdateCarComponent},
-  { path: 'reservation', component: ReservationsComponent},
-  { path: 'users', component: UsersComponent},
+  { path: 'car-models', component: CarModelsComponent , canActivate:[AdminGuard]},
+  { path: 'car-models/new', component: NewCarModelComponent , canActivate:[AdminGuard] },
+  { path: 'car-models/update/:id', component: UpdateCarModelComponent , canActivate:[AdminGuard]},
+  { path: 'fleet-vehicle', component: FleetVehicleComponent , canActivate:[AdminGuard]},
+  { path: 'fleet-vehicle/new', component: NewCarComponent , canActivate:[AdminGuard]},
+  { path: 'fleet-vehicle/update/:carID', component: UpdateCarComponent , canActivate:[AdminGuard]},
+  { path: 'reservation', component: ReservationsComponent , canActivate:[AdminGuard]},
+  { path: 'users', component: UsersComponent , canActivate:[AdminGuard]},
+  { path: 'users/update/:userID', component: UpdateUserComponent , canActivate:[AdminGuard]},
+
+  {
+    path: '', component: CarModelsComponent
+  }
 ];
 
 

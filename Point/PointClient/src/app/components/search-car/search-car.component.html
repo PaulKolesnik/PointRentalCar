@@ -3,32 +3,60 @@
 <div class="container-fluid">
   <br>
   <br>
+  <div class="filter-box">
+    <div class="row">
+      <div class="col-3">
+        <h4>Categories Filter:</h4>
+        <ng-select class="custom" [items]="categories" bindLabel="catName" bindValue="catID"
+          placeholder="filter by category" [(ngModel)]="catID" (clear)="clear()" (change)="filterCategories()">
+        </ng-select>
+      </div>
+      <div class="col-3">
+        <h4>Year Filter:</h4>
+        <ng-select class="custom" [items]="fleetVehicles" bindLabel="carYear" bindValue="carYear"
+          placeholder="filter by year" [(ngModel)]="yearID" (clear)="clear()" (change)="filterByYear()">
+        </ng-select>
+      </div>
+      <div class="col-3">
+        <h4>Gearbox Filter:</h4>
+        <ng-select class="custom" [items]="fleetVehicles" bindLabel="gearbox" bindValue="gearbox"
+          placeholder="filter by gearbox" [(ngModel)]="gearboxID" (clear)="clear()" (change)="filterByGearbox()">
+        </ng-select>
+      </div>
+      <div class=" col-3">
+        <h4>Manufacturer Filter:</h4>
+        <ng-select class="custom" [items]="carsModels" bindLabel="cModelManufacturer" bindValue="cModelManufacturer"
+          placeholder="filter by manufacturer" [(ngModel)]="manufacturerID" (clear)="clear()"
+          (change)="filterByManufacturer()">
+        </ng-select>
+      </div>
 
-  <h3>Filter By:</h3>
-  <form>
-    <span class="">
-      <label for="">Email address </label>
-      <input type="email" placeholder="name@example.com" formControlName="email">
-    </span>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <h4>Model Filter:</h4>
+        <ng-select class="custom" [items]="carsModels" bindLabel="cModelName" bindValue="cModelName"
+          placeholder="filter by model" [(ngModel)]="carModelID" (clear)="clear()" (change)="filterByCarModel()">
+        </ng-select>
+      </div>
+      <div class="col-3">
+        <h4 class="down">Start Date</h4>
+        <input type="date" [(ngModel)]="startDate" (onChange)="filterByStartDate()">
+      </div>
+      <div class="col-3">
+        <h4 class="down">End Date</h4>
+        <input type="date" [(ngModel)]="endDate" (onChange)="filterByEndDate()">
+      </div>
+      <div class="col-3">
+        <div class="search-hero">
+          <h4 class="down">Search Text</h4>
 
-    <span class="form-group">
-      <label for="exampleFormControlSelect1">Subject</label>
-      <input type="email" class="" id="exampleFormControlInput1" placeholder="name@example.com" formControlName="email">
-    </span>
-
-    <span class="form-group">
-      <label for="exampleFormControlTextarea1"> Gearbox </label>
-      <select class="form-control" id="exampleFormControlSelect1" formControlName="subject">
-        <option>Payment issues</option>
-        <option>Continue the rental period</option>
-        <option>Question of availability</option>
-        <option>Discount for purchasing groups</option>
-        <option>Other</option>
-      </select>
-    </span>
-
-    <h3>Our Cars:</h3>
-  </form>
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="&#61442;  Start searching for a find car for u">
+        </div>
+      </div>
+    </div>
+  </div>
   <table class="table table-hover cars">
     <thead>
       <tr>
@@ -37,38 +65,32 @@
         <th scope="col">Gearbox</th>
         <th scope="col">Category</th>
         <th scope="col">Price</th>
+        <th scope="col">More Details</th>
         <th scope="col">Order</th>
       </tr>
     </thead>
     <tbody>
+      <tr *ngFor="let car of fleetVehiclesToShow | filter:searchText">
+        <th scope="row">{{car.id}}</th>
+        <td>{{car.carModel.cModelManufacturer}} {{car.carModel.cModelName}} </td>
+        <td>{{car.gearbox}}</td>
+        <td>{{car.carModel.cModelCat.catName}}</td>
+        <td>{{car.carYear}}</td>
+        <td (click)="open(content, car.id)">
+          <span class="material-icons">
+            trending_up
+          </span>
+        </td>
+        <td routerLink="/search-car/order/{{car.id}}">
+          <span class="material-icons">
+            local_mall
+          </span>
+        </td>
+      </tr>
 
-      <tr (click)="open(content)">
-        <th scope="row">1</th>
-        <td>Honda Jazz</td>
-        <td>Auto</td>
-        <td>Family</td>
-        <td>350₪</td>
-        <td><a>Order Now!</a></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry the Bird</td>
-        <td>Larry the Bird</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-        <td>@twitter</td>
-      </tr>
     </tbody>
-  </table>
 
+  </table>
 
 
   <ng-template #content let-modal>
@@ -83,54 +105,53 @@
 
       <div class="row">
         <div class="col-4">
-          <span class="prop">VIN:</span> 22-627-30
+          <span class="prop">VIN:</span>{{car.vin}}
         </div>
         <div class="col-4">
-          <span class="prop">Category:</span> Mini
+          <span class="prop">Category:</span> {{car.carModel.cModelCat.catName}}
         </div>
         <div class="col-4">
-          <span class="prop">Type:</span> Opel Astra
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-4">
-          <span class="prop">Color:</span> Red
-        </div>
-        <div class="col-4">
-          <span class="prop">Purchase Date:</span> 2018
-        </div>
-        <div class="col-4">
-          <span class="prop">Year:</span> 2019
+          <span class="prop">Type:</span> {{car.carModel.cModelManufacturer}} {{car.carModel.cModelName}}
         </div>
       </div>
 
       <div class="row">
         <div class="col-4">
-          <span class="prop">Mileage:</span> 14,000
+          <span class="prop">Color:</span> {{car.color}}
         </div>
         <div class="col-4">
-          <span class="prop">Gearbox:</span> auto
+          <span class="prop">Purchase Date:</span> {{car.purchaseDate | date}}
         </div>
         <div class="col-4">
-          <span class="prop">Available at:</span> Ashdod
+          <span class="prop">Year:</span> {{car.carYear}}
         </div>
       </div>
 
       <div class="row">
         <div class="col-4">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Opel_Astra_1.4_EDIT_Edition_%28K%29_%E2%80%93_Frontansicht%2C_31._Juli_2016%2C_D%C3%BCsseldorf.jpg">
+          <span class="prop">Mileage:</span> {{car.mileage}}
+        </div>
+        <div class="col-4">
+          <span class="prop">Gearbox:</span> {{car.gearbox}}
+        </div>
+        <div class="col-4">
+          <span class="prop">Available at:</span> {{car.branch.name}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <img src="{{car.carImgName}}">
         </div>
         <div class="col-3 offset-1 top">
-          Vehicle available: YES
+          Vehicle available: {{car.toUsed}}
           <br><br>
 
         </div>
         <div class="col-3 top">
-          Price: <span class="price">350₪</span>
+          Price: <span class="price">{{car.carModel.priceDay}}₪</span>
           <br>
-          Price of <u>Late Day</u>: <span class="price">400₪</span>
+          Price of <u>Late Day</u>: <span class="price">{{car.carModel.priceLateDay}}₪</span>
         </div>
       </div>
     </div>

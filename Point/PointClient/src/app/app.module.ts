@@ -11,7 +11,7 @@ import { JwtInterceptorService } from './services/jwt-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
-    LogoutComponent
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
