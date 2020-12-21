@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Unsubscribe } from 'redux';
 import { UserModel } from 'src/app/models/user-model';
@@ -13,7 +14,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   user: UserModel = store.getState().user;
   private unsubscribe: Unsubscribe;
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
     this.unsubscribe = store.subscribe(() => {
@@ -25,6 +26,17 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   checkPanelPermissions(): boolean {
-    return this.user.userRole == '1' || this.user.userRole == '2';
+    if (!this.user)
+      return null;
+    return this.user?.userRole == '1' || this.user?.userRole == '2';
+  }
+
+  routeOrder(){
+    const reservation= JSON.parse(localStorage.getItem("reservation"));
+    const id = reservation.id;
+
+    this.route.navigateByUrl('/search-car/order/' + id);
+
+
   }
 }

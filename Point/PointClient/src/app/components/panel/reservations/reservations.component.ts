@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ReservationModel } from 'src/app/models/reservation-model';
-import { FleetVehiclesService } from 'src/app/services/fleet-vehicles.service';
-import { ReservationService } from 'src/app/services/reservation.service';
 import { Notyf } from 'notyf';
+import { ReservationModel } from 'src/app/models/reservation-model';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-reservations',
@@ -15,15 +14,13 @@ export class ReservationsComponent implements OnInit {
   reservations: ReservationModel[];
   reservation: ReservationModel;
   constructor(
-    private fleetVehiclesServices: FleetVehiclesService,
     private reservationService: ReservationService,
     private modalService: NgbModal,
-
   ) { }
 
   async ngOnInit() {
     this.reservations = await this.reservationService.getAllReservations();
-    console.log('reservation',this.reservations)
+    console.log('reservation', this.reservations)
   }
   open(content, id: number) {
     this.findRed(id);

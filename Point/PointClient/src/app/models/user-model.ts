@@ -1,18 +1,16 @@
 import { PhoneModel } from './phone-model';
-export class UserModel {
-  public constructor(
-    public userID?: number,
-    public userRole?: string,
-    public fullName?: string,
-    public userName?: string,
-    public password?: string,
-    public gender?: string,
-    public birthDate?: Date,
-    public email?: string,
-    public phoneID?: number,
-    public userPic?: string,
-    public image?: File,
-    public jwtToken?: string,
-    public phone?: PhoneModel
-    ) {}
+export interface UserModel {
+    userRole?: string;
+    userID?: number;
+    fullName?: string;
+    userName?: string;
+    password?: string;
+    gender?: string;
+    birthDate?: Date;
+    email?: string;
+    phoneID?: number;
+    userPic?: string;
+    image?: File;
+    jwtToken?: string;
+    phone?: PhoneModel;
 }

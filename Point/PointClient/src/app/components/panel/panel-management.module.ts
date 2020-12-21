@@ -20,6 +20,8 @@ import { NewCarComponent } from './fleet-vehicle/new-car/new-car.component';
 import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
+import { ReturnCarComponent } from './return-car/return-car.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -35,6 +37,7 @@ import { UpdateUserComponent } from './users/update-user/update-user.component';
     NewCarComponent,
     UpdateCarComponent,
     UpdateUserComponent,
+    ReturnCarComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,8 @@ import { UpdateUserComponent } from './users/update-user/update-user.component';
     FooterModule,
     MenuModule,
     NgSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {

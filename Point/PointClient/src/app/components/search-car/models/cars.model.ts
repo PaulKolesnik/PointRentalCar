@@ -14,6 +14,7 @@ export class FleetVehiclesModel {
   branchID: number;
   branch: BranchModel;
   carModel: CarsModel;
+  model: CarsModel;
   constructor() {
   }
 }

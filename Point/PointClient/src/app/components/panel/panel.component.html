@@ -5,6 +5,7 @@
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Management Panel </div>
     <div class="list-group list-group-flush">
+      <a *ngIf="user.userRole == '1' || user.userRole == '2'" routerLink="/panel/return-car" class="list-group-item list-group-item-action bg-light">Return Car</a>
       <a *ngIf="user.userRole == '1'" routerLink="/panel/car-models" class="list-group-item list-group-item-action bg-light">Car Models</a>
       <a *ngIf="user.userRole == '1'" routerLink="/panel/fleet-vehicle" class="list-group-item list-group-item-action bg-light">Fleet vehicles</a>
       <a *ngIf="user.userRole == '1'" routerLink="/panel/reservation" class="list-group-item list-group-item-action bg-light">Reservations</a>

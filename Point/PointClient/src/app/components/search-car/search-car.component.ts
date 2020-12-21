@@ -89,7 +89,10 @@ export class SearchCarComponent implements OnInit, OnDestroy {
     return this.carsModels.find(c => c.cModelID === id);
   }
 
-
+  public saveStorage(car): void {
+    sessionStorage.setItem("reservation", JSON.stringify(car));
+    localStorage.setItem("reservation", JSON.stringify(car));
+  }
   public filterCategories(): void {
     this.fleetVehiclesToShow = this.fleetVehicles.filter(c => c.carModel.cModelCatID === this.catID);
   }

@@ -12,7 +12,9 @@ export class ReservationModel {
     public usersID?: number,
     public paidUP?: string,
     public car?: FleetVehiclesModel,
-    public user?: UserModel
+    public user?: UserModel,
+
+    public totalAmount: number = 0,
   ) { }
 
 }

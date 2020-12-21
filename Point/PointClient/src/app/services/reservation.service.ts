@@ -36,6 +36,11 @@ export class ReservationService {
 
     return this.http.put<ReservationModel>(apiAddress + '/' + id, reservation).toPromise();
   }
+  public returnCarToFleet(id: number, reservation: ReservationModel): Promise<ReservationModel> {
+    const apiAddress = this.configurationService.getApiEndPoint(this.configurationService.api.reservation);
+
+    return this.http.put<ReservationModel>(apiAddress + '/return/' + id, reservation).toPromise();
+  }
 
   public DeleteReservation(id: number): Promise<ReservationModel> {
     const apiAddress = this.configurationService.getApiEndPoint(this.configurationService.api.reservation);

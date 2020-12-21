@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <h1 class="mt-1 modal-title">Return Car from customer</h1>
+  <span>
+    Find with VIN:
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&rarr;  Start searching ">
+  </span>
+
+
+
+  <table class="table table-hover ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">VIN</th>
+        <th scope="col">Rent Date</th>
+        <th scope="col">Return Date</th>
+        <th scope="col">PaidUP</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">Return car</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let reservation of reservations | filter:searchText">
+        <th scope=" row">{{reservation.reservationID}}</th>
+        <td>{{reservation.car.vin}}</td>
+        <td>{{reservation.pDate| date}}</td>
+        <td>{{reservation.rDate | date}}</td>
+        <td>{{reservation.paidUP}}$</td>
+        <td>{{reservation.totalAmount}}$</td>
+        <td><button class="btn btn-secondary" (click)="returnCarToFleet(reservation.reservationID)">Return</button></td>
+
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

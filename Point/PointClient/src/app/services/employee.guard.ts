@@ -13,6 +13,8 @@ export class EmployeeGuard implements CanActivate {
     if (store.getState().user?.userRole === '2') {
       return true;
     }
+    if (store.getState().user?.userRole === '1')
+      return false;
     var notyf = new Notyf({ duration: 4000, ripple: false });
     notyf.success('Please login!');
 

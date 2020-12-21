@@ -52,7 +52,7 @@
           <h4 class="down">Search Text</h4>
 
           <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
-            placeholder="&#61442;  Start searching for a find car for u">
+            placeholder="&rarr;  Start searching for a find car for u">
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@
             trending_up
           </span>
         </td>
-        <td routerLink="/search-car/order/{{car.id}}">
+        <td routerLink="/search-car/order/{{car.id}}" (click)="saveStorage(car)">
           <span class="material-icons">
             local_mall
           </span>

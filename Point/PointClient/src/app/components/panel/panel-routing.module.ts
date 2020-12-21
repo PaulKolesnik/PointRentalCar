@@ -12,8 +12,10 @@ import { UsersComponent } from './users/users.component';
 import { NewCarModelComponent } from './car-models/new-car-model/new-car-model.component';
 import { NewCarComponent } from './fleet-vehicle/new-car/new-car.component';
 import { UpdateCarComponent } from './fleet-vehicle/update-car/update-car.component';
+import { ReturnCarComponent } from './return-car/return-car.component';
 
 export const portalChildrenRouts: Route[] = [
+  { path: 'return-car', component: ReturnCarComponent , canActivate:[EmployeeGuard,AdminGuard]},
   { path: 'car-models', component: CarModelsComponent , canActivate:[AdminGuard]},
   { path: 'car-models/new', component: NewCarModelComponent , canActivate:[AdminGuard] },
   { path: 'car-models/update/:id', component: UpdateCarModelComponent , canActivate:[AdminGuard]},
@@ -25,7 +27,7 @@ export const portalChildrenRouts: Route[] = [
   { path: 'users/update/:userID', component: UpdateUserComponent , canActivate:[AdminGuard]},
 
   {
-    path: '', component: CarModelsComponent
+    path: '', component: ReturnCarComponent
   }
 ];
 

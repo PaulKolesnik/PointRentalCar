@@ -14,8 +14,8 @@ import { LocationModel } from '../search-car/models/cars.model';
 })
 export class RegisterComponent implements OnInit {
 
-  public user: UserModel = new UserModel();
-  public phone: PhoneModel ;
+  public user: UserModel;
+  public phone: PhoneModel;
   public location: LocationModel = new LocationModel();
 
   public preview: string;
@@ -40,7 +40,16 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user.userRole = "3";
+    this.user = {
+      userRole: "1",
+      fullName:  '',
+      userName: '',
+      password: '',
+      gender: '',
+      birthDate: null,
+      email: '',
+      //phone?: PhoneModel;
+    }
     navigator.geolocation.getCurrentPosition(position => {
       this.location.latitude = position.coords.latitude;
       this.location.longitude = position.coords.longitude;
@@ -53,8 +62,8 @@ export class RegisterComponent implements OnInit {
   }
 
   async onSubmit() {
+    this.user.userRole = "3";
     this.user.phone = this.phone;
-    //this.user.phone.phoneID = null;
     console.log('user', this.user);
     const success = await this.authService.register(this.user);
     console.log(this.form);
@@ -66,7 +75,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigateByUrl('/home');
       }, 2000)
     }
-    else{
+    else {
       notyf.error('Your have not registered!');
     }
 

@@ -16,7 +16,7 @@ export class LoginGuard implements CanActivate {
       return true;
     }
     var notyf = new Notyf({ duration: 4000, ripple: false});
-    notyf.success('Please login!');
+    notyf.error('Please login!');
 
     this.route.navigateByUrl('/login');
     return false;
